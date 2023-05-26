@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      {% csrf_token %} {{form.as_p}}
+      <input type="submit" value="Create" />
+    </form>
+
+    <div>
+      {% for blog in blogs %}
+      <h1>{{blog.title}}</h1>
+     <a href="{% url 'post' blog.new_slug %}"> <p>{{blog.body|truncatewords:30}}</p> </a>
+      <h3>{{blog.created}}</h3>
+
+        <a href="{% url 'update' blog.new_slug %}">Update</a>
+        <a href="{% url 'delete' blog.new_slug %}">Delete</a>
+      <hr>
+      {% endfor %}
+    </div>
+  </body>
+</html>
+
+{% comment %} Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas est dolorem nesciunt rem repellat sapiente consequuntur, nulla impedit dolores perferendis quibusdam odio sequi necessitatibus deserunt repudiandae molestiae. Voluptate blanditiis esse omnis! A voluptas excepturi natus in placeat aliquam, porro totam repudiandae quo. Similique exercitationem impedit, aperiam, accusantium cum veniam perspiciatis repudiandae corporis cumque doloribus corrupti accusamus laboriosam placeat esse? Magnam illum ex sed dolores. Modi ratione illo inventore sed omnis impedit doloremque laboriosam ut adipisci, quia explicabo, maxime accusantium dicta hic quos similique quisquam quas fugiat ad tenetur dolor voluptates? Animi, aperiam corrupti sapiente, dicta iure sunt eius molestiae itaque at voluptatum sit corporis eaque illum. Maiores nobis nemo aspernatur labore illum. Possimus consequatur explicabo pariatur inventore dolor. Neque, id! Rem repellat voluptatem accusantium quo odit fugiat eum quas modi in minus rerum porro iste quisquam magni, enim, excepturi dolorum tempora aliquid laborum illum quibusdam cum vel sit? Soluta, vero. Quo molestias rem quibusdam obcaecati accusantium ipsum nihil quaerat nostrum asperiores doloremque esse labore, eaque assumenda magnam, harum tempora repellendus et dolorem ad consequatur adipisci pariatur! Autem quia quaerat explicabo alias magnam odit ratione. Dolorem veritatis eaque dolor nemo aspernatur amet doloribus quidem perferendis id ullam itaque quae, cumque nulla? {% endcomment %}
